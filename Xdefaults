@@ -1,0 +1,85 @@
+!!-! URXVT !-!!
+!! General settings
+
+*font: 		xft:terminus:pixelsize=8
+*boldFont: 	xft:terminus:bold:pixelsize=8
+URxvt*allow_bold:	true
+URxvt*termName:		rxvt-256color
+URxvt*scrollBar:	false
+URxvt*geometry:		85x16
+
+URxvt*perl-ext-common:  default,matcher
+URxvt*matcher.button:   3
+URxvt*urlLauncher:      x-www-browser
+!!URxvt.keysym.M-u:	perl:url-select:select_next
+
+URxvt.underlineURLs:	true
+URxvt.saveLines:	1000
+URxvt.scrollBar:	False
+
+!! Trasperancy
+URxvt*transparent:	False
+URxvt*inheritPixmap:	False
+URxvt*shading:		30
+URxvt*tintColor:	#404040
+
+!! Fading
+URxvt*fading:		0
+URxvt*fadeColor:	#202020
+
+!! Fore/background color
+*background:	#151515
+*foreground:	#999
+
+!! Some Theme
+!Black
+*color0:	#101010
+*color8:	#505050
+!Red
+*color1:	#a2363a
+*color9:	#ff5b62
+!!Green
+*color:	#3ca034
+*color10:	#3ed421
+!!Yellow
+*color3:	#b3930f
+*color11:	#f1c719
+!!Blue
+*color4:	#286f8a
+*color12:	#4382c4
+!!Magenta
+*color5:	#746d76
+*color13:	#b287ba
+!!Cyan
+*color6:	#42ab9e
+*color14:	#9bc6c0
+!!White
+*color7:	#c0c0c0
+*color15:	#ffffff
+
+!!-! XFT settings !-!!
+Xft*dpi:	96
+Xft*antialias:	true
+Xft*hinting:	full
+
+!! Astromouse Theme
+!*background:	[85]#101010
+!*foreground:	#b5b5b5
+!*color0:	#1c1c1c
+!*color8:	#3d3a3a
+!*color1:	#d74b73
+!*color9:	#b94062
+!*color2:	#9acc79
+!*color10:	#8fb676
+!*color3:	#d0d26b
+!*color11:	#c8bc45
+!*color4:	#77b6c5
+!*color12:	#8fa7b9
+!*color5:	#a488d9
+!*color13:	#8888a1
+!*color6:	#7fcab3
+!*color14:	#6ec2a8
+!*color7:	#8d8d8d
+!*color15:	#dad3d3
+
+
