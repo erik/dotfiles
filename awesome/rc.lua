@@ -280,6 +280,22 @@ globalkeys = awful.util.table.join(
     end),
     -----------------------------------------------------------------------------------------------------
 
+    -- Screen shot---------------------------------------------------------------------------------------
+    awful.key({ modkey,           }, "s",
+    	function()
+		awful.util.spawn("import /home/erik/pictures/screenshots/" .. os.date('%Y-%m-%d-%H%M%S_import') .. ".png")
+	end),
+    -----------------------------------------------------------------------------------------------------
+
+    -- dmenu launcher------------------------------------------------------------------------------------
+    awful.key({ modkey,           }, "r",
+    	function()
+		awful.util.spawn("dmenu_run -b -i -p 'Run command:' -nb '" .. beautiful.bg_normal .. "' -nf '"
+				 .. beautiful.fg_normal .. "' -sb '" .. beautiful.bg_focus .. "' -sf '" ..
+				 beautiful.fg_focus .. "'")
+	end),
+    -----------------------------------------------------------------------------------------------------
+
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -325,7 +341,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    -- awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
