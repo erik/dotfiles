@@ -7,6 +7,7 @@ URxvt*allow_bold:	true
 URxvt*termName:		rxvt-256color
 URxvt*scrollBar:	false
 URxvt*geometry:		85x16
+URxvt*depth:		32
 
 URxvt*perl-ext-common:  default,matcher
 URxvt*matcher.button:   3
@@ -18,9 +19,9 @@ URxvt.saveLines:	1000
 URxvt.scrollBar:	False
 
 !! Trasperancy
-URxvt*transparent:	False
+URxvt*transparent:	false
 URxvt*inheritPixmap:	False
-URxvt*shading:		30
+URxvt*shading:		15
 URxvt*tintColor:	#404040
 
 !! Fading
@@ -28,7 +29,8 @@ URxvt*fading:		0
 URxvt*fadeColor:	#202020
 
 !! Fore/background color
-*background:	#151515
+URxvt*background:rgba:1000/1000/1000/dddd
+!!#151515
 *foreground:	#999
 
 !! Some Theme
