@@ -5,6 +5,7 @@ set smartindent
 
 set showmatch
 
-colorscheme vibrantink
+colorscheme twilight
+set background=light
 
 set number
