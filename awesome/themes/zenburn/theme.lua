@@ -13,6 +13,7 @@ theme.wallpaper_cmd = { "awsetbg -c /home/erik/pictures/current_wallpaper" }
 
 -- {{{ Styles
 theme.font      = "terminus 8"
+theme.taglist_font = "Inconsolata Medium 10"
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"
@@ -24,7 +25,7 @@ theme.bg_urgent = "#3F3F3F"
 -- }}}
 
 -- {{{ Borders
-theme.border_width  = "3"
+theme.border_width  = "1"
 theme.border_normal = "#121212"
 theme.border_focus  = "#286F8A"
 theme.border_marked = "#CC9393"

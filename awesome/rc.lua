@@ -50,7 +50,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-  names = { "main", "irssi", "firefox", "emacs", "term", "music", 7, 8, 9},
+  names = { "☠", "⌥", "✇", "⌤", "⍜", "✣", "⚡", "⌘", "☕" },
 }
 
 for s = 1, screen.count() do
@@ -78,8 +78,8 @@ mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
 
 function update_song_info()
 	if io.popen("pgrep mpd"):read() == nil then
-		bwidget.text = "Not playing"
-		bansheeicon.image = pauseicon.image
+		musicwidget.text = "Not playing"
+		musicicon.image = pauseicon.image
 		return
 	end
 
@@ -89,10 +89,10 @@ function update_song_info()
 	local playing = false
 	
 	if line:match("volume: n/a") then
-		bwidget.text = "Not playing"
+		musicwidget.text = "Not playing"
 	else
 		local song, state = line, pipe:read()
-		bwidget.text = vicious.helpers.escape(song)
+		musicwidget.text = vicious.helpers.escape(song)
 
 		if state:match("playing") then
 			playing = true
@@ -100,9 +100,9 @@ function update_song_info()
 	end
 
 	if playing then
-		bansheeicon.image = playicon.image
+		musicicon.image = playicon.image
 	else
-		bansheeicon.image = pauseicon.image
+		musicicon.image = pauseicon.image
 	end
 end
 
@@ -133,7 +133,7 @@ separator.text = " :: " --' <span color="#CC9393>|</span> '
 
 --banshee----------------------------------------------------------------------------
 -- this icon is set by fetch_song_info
-bansheeicon = widget({type = "imagebox"})
+musicicon = widget({type = "imagebox"})
 
 playicon = widget({type = "imagebox" })
 pauseicon = widget({type = "imagebox" })
@@ -141,7 +141,7 @@ pauseicon = widget({type = "imagebox" })
 playicon.image  = image("/home/erik/.config/awesome/icons/note-play.png")
 pauseicon.image = image("/home/erik/.config/awesome/icons/note-pause.png") 
 
-bwidget = widget({ type = "textbox" })
+musicwidget = widget({ type = "textbox" })
 
 musictimer = timer({ timeout = 5})
 musictimer:add_signal("timeout", function()
@@ -212,6 +212,19 @@ for s = 1, screen.count() do
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
+    -- Add buttons to wibox
+    
+    mywibox[s].buttons = {
+       awful.button({ }, 3, function ()
+                               if instance then
+                                  instance:hide()
+                                  instance = nil
+                               else
+                                  instance = awful.menu.clients({ width=250 })
+                               end
+                         end)
+    }
+
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
@@ -225,7 +238,7 @@ for s = 1, screen.count() do
         upicon, netwidget, dnicon, separator,
 	memwidget, memicon, separator,
         wifiwidget, wicon, separator,
-        bwidget, bansheeicon,
+        musicwidget, musicicon,
         layout = awful.widget.layout.horizontal.rightleft
     }
 end
@@ -296,6 +309,19 @@ globalkeys = awful.util.table.join(
 	end),
     -----------------------------------------------------------------------------------------------------
 
+    -- Window list---------------------------------------------------------------------------------------
+    awful.key({ modkey, "Shift"   }, "w", 
+              function ()
+                 if instance then
+                    instance:hide()
+                    instance = nil
+                 else
+                    instance = awful.menu.clients({ width=250 })
+                    instance:show({ keygrabber=true })
+                 end
+           end),
+    -----------------------------------------------------------------------------------------------------
+
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
@@ -339,9 +365,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-
-    -- Prompt
-    -- awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
