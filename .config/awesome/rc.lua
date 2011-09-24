@@ -52,7 +52,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-  names = { "☠", "⌥", "✇", "⌤", "⍜", "✣", "⚡", "⌘", "☕" },
+  names = { "1", "2", "3", "4", "5" },
 }
 
 for s = 1, screen.count() do

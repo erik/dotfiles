@@ -2,7 +2,10 @@
 
 awesome &
 xcompmgr &
+
 eval `dbus-launch --sh-syntax --exit-with-session`
 exec ck-launch-session gnome-session
-#nm-applet &
 gnome-settings-daemon &
+
+eval `mpd && mpc ls | mpc add; mpc shuffle`
+eval `mpdscribble`
