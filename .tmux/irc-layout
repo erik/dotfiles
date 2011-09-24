@@ -1,0 +1,7 @@
+#startup options
+new -n irc htop
+splitw -v -p 80 irssi
+splitw -h -p 15 'cat ~/.irssi/nicklistfifo'
+select-pane -t 0
+splitw -h -p 50 'slurm -i wlan0'
+select-pane -t 1
