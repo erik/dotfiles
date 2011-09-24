@@ -36,3 +36,6 @@ update_directory()
 }
 
 update_directory "."
+
+git commit -a
+git push origin master
