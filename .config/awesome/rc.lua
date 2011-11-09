@@ -116,6 +116,7 @@ function music_action(act)
 	-- spawn and shuffle mpd if not already open
 	if io.popen("pgrep mpd"):read() == nil then
 		os.execute("mpd ~/.mpdconf && mpc ls | mpc add; mpc shuffle")
+		os.execute("mpdscribble")
 	end
 
 	if act == 'play' then
@@ -303,6 +304,7 @@ globalkeys = awful.util.table.join(
     	function()
 		awful.util.spawn("import /home/erik/pictures/screenshots/" .. os.date('%Y-%m-%d-%H%M%S_import') .. ".png")
 	end),
+    awful.key({ }, "Print", function() awful.util.spawn("scrot -e 'mv $f ~/pictures/screenshots/'") end),
     -----------------------------------------------------------------------------------------------------
 
     -- dmenu launcher------------------------------------------------------------------------------------
