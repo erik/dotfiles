@@ -29,8 +29,6 @@ editor_cmd = terminal .. " -e " .. editor
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
-floating_mode = false
-
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
@@ -54,6 +52,9 @@ layouts =
 tags = {
   names = { "1", "2", "3", "4", "5" },
 }
+
+floating_mode = false
+
 
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
@@ -342,15 +343,16 @@ globalkeys = awful.util.table.join(
 				if floating_mode then
 					awful.titlebar.remove(c)
 					awful.client.floating.set(c, false)
+					floating_mode = false
 				else
 					awful.client.floating.set(c, true)
 					awful.titlebar.add(c)
+					floating_mode = true
 				end
 			end
 		end
 	end
 
-   	floating_mode = not floating_mode
 
     end),
 
@@ -486,6 +488,7 @@ awful.rules.rules = {
     { rule = { },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
+		     size_hints_honor = false,
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
@@ -510,7 +513,9 @@ awful.rules.rules = {
 
     { rule = { class = "gimp" },
       properties = { floating = true } },
-
+ 
+    { rule = { class = "Npviewer.bin" },
+      properties = { floating = true } },
     -- Set Firefox to always map on tags number 2 of screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { tag = tags[1][2] } },
@@ -520,7 +525,7 @@ awful.rules.rules = {
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.add_signal("manage", function (c, startup)
-    -- Add a titlebari
+    -- Add a titlebar
     if floating_mode then
     	awful.titlebar.add(c, { modkey = modkey })
 	awful.client.floating.set(c, true)
