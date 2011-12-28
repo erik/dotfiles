@@ -7,3 +7,5 @@ compinit
 . ~/.zsh/history.zsh
 . ~/.zsh/config.zsh
 . ~/.zsh/aliases.zsh
+. ~/.zsh/funcs.zsh
+

@@ -1,15 +1,15 @@
 !!-! URXVT !-!!
 !! General settings
 
-*font: 		xft:terminus:pixelsize=8
-*boldFont: 	xft:terminus:bold:pixelsize=8
+URxvt*font: 		xft:terminus:pixelsize=8
+URxvt*boldFont: 	xft:terminus:bold:pixelsize=8
 URxvt*allow_bold:	true
 URxvt*termName:		rxvt-256color
 URxvt*scrollBar:	false
 URxvt*geometry:		85x16
 URxvt*depth:		32
 
-URxvt*perl-ext-common:  default,matcher
+URxvt*perl-ext-common:  default,matcher,tabbed
 URxvt*matcher.button:   3
 URxvt*urlLauncher:      x-www-browser
 !!URxvt.keysym.M-u:	perl:url-select:select_next
@@ -18,10 +18,10 @@ URxvt.underlineURLs:	true
 URxvt.saveLines:	1000
 URxvt.scrollBar:	False
 
-!! Trasperancy
+!! Transparency
 URxvt*transparent:	false
 URxvt*inheritPixmap:	False
-!!URxvt*shading:		15
+!!URxvt*shading:	15
 !!URxvt*tintColor:	#404040
 
 !! Fading
@@ -29,140 +29,18 @@ URxvt*inheritPixmap:	False
 !!URxvt*fadeColor:	#202020
 
 !! Fore/background color
-URxvt*background:rgba:1000/1000/1000/FFFF
-!!URxvt*background:	DDDDDD
-!!#151515
+URxvt*background:	rgba:1000/1000/1000/EFFF
 URxvt*foreground:	#DDD
 
-!! Some Theme
-/*
-!Black
-*color0:	#101010
-*color8:	#505050
-!Red
-*color1:	#a2363a
-*color9:	#ff5b62
-!!Green
-*color:	#3ca034
-*color10:	#3ed421
-!!Yellow
-*color3:	#b3930f
-*color11:	#f1c719
-!!Blue
-*color4:	#286f8a
-*color12:	#4382c4
-!!Magenta
-*color5:	#746d76
-*color13:	#b287ba
-!!Cyan
-*color6:	#42ab9e
-*color14:	#9bc6c0
-!!White
-*color7:	#c0c0c0
-*color15:	#ffffff
-*/
+!! Tabs
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    3
+URxvt.tabbed.tab-bg:    0
 
 !!-! XFT settings !-!!
 Xft*dpi:	96
 Xft*antialias:	true
 Xft*hinting:	full
 
-/*
-!! Space Supreme Theme
-!black
-*color0:#282828
-*color8:#363636
-!red
-*color1:#8A2F58
-*color9:#CF4F88
-!green
-*color2:#287373
-*color10:#53A6A6
-!yellow
-*color3:#914E89
-*color11:#BF85CC
-!blue
-*color4:#18618f
-*color12:#1C86C5
-!magenta
-*color5:#5E468C
-*color13:#7F62B3
-!cyan
-*color6:#8CAFF0
-*color14:#9BBAF1
-!white
-*color7:#EDD8D1
-*color15:#FCEDE3
-*/
-
-/*
-!! Some theme
-*color0:	#222222
-*color8:	#666666
-!red
-*color1:	#E84F4F
-*color9:	#D23D3D
-!green
-*color2:	#B7CE42
-*color10:	#BDE077
-!yellow
-*color3:	#FEA63C
-*color11:	#FFE863
-!blue
-*color4:	#66AABB
-*color12:	#AACCBB
-!magenta
-*color5:	#B7416E
-*color13:	#E16A98
-!cyan
-*color6:	#6D878D
-*color14:	#42717B
-!white
-*color7:	#DDDDDD
-*color15:	#CCCCCC
-!! */
-
-!!/*
-!! Some Other theme
-*background:  #000000
-*foreground:  #7f7f7f
-*color0:      #000000
-*color1:      #9e1828
-*color2:      #aece92
-*color3:      #968a38
-*color4:      #414171
-*color5:      #963c59
-*color6:      #418179
-*color7:      #bebebe
-*color8:      #666666
-*color9:      #cf6171
-*color10:     #c5f779
-*color11:     #fff796
-*color12:     #4186be
-*color13:     #cf9ebe
-*color14:     #71bebe
-*color15:     #ffffff
-!! */
-
-!! Astromouse Theme
-!*background:	[85]#101010
-!*foreground:	#b5b5b5
-/*
-*color0:	#1c1c1c
-*color8:	#3d3a3a
-*color1:	#d74b73
-*color9:	#b94062
-*color2:	#9acc79
-*color10:	#8fb676
-*color3:	#d0d26b
-*color11:	#c8bc45
-*color4:	#77b6c5
-*color12:	#8fa7b9
-*color5:	#a488d9
-*color13:	#8888a1
-*color6:	#7fcab3
-*color14:	#6ec2a8
-*color7:	#8d8d8d
-*color15:	#dad3d3
-*/
-
+#include ".xcolors/space_supreme"
