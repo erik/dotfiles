@@ -39,11 +39,11 @@ layouts =
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+--    awful.layout.suit.spiral,
+--    awful.layout.suit.spiral.dwindle,
+--    awful.layout.suit.max,
+--    awful.layout.suit.max.fullscreen,
+--    awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -275,6 +275,11 @@ globalkeys = awful.util.table.join(
     awful.key({}, "XF86AudioNext", function() music_action("next") end),
     awful.key({}, "XF86AudioPrev", function() music_action("prev") end),
     awful.key({}, "XF86AudioMedia",function() awful.util.spawn("urxvt -tn rxvt-unicode -e ncmpcpp") end),
+    -----------------------------------------------------------------------------------------------------
+	
+    -- Open Emacs----------------------------------------------------------------------------------------
+    awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn("emacs --daemon") end),
+    awful.key({ modkey, "Control" }, "Return", function() awful.util.spawn("emacsclient -c") end),
     -----------------------------------------------------------------------------------------------------
 
     -- theme switcher menu-------------------------------------------------------------------------------

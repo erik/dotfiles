@@ -1,4 +1,4 @@
 #startup options
-new -n irc irssi
+new -n irc weechat-curses
 splitw -v -p 20 zsh 
 select-pane -t 0

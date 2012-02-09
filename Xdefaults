@@ -1,8 +1,8 @@
 !!-! URXVT !-!!
 !! General settings
 
-URxvt*font: 		xft:terminus:pixelsize=8
-URxvt*boldFont: 	xft:terminus:bold:pixelsize=8
+URxvt*font: 		xft:clean:pixelsize=10
+URxvt*boldFont: 	xft:clean:pixelsize=10
 URxvt*allow_bold:	true
 URxvt*termName:		rxvt-256color
 URxvt*scrollBar:	false
@@ -29,7 +29,7 @@ URxvt*inheritPixmap:	False
 !!URxvt*fadeColor:	#202020
 
 !! Fore/background color
-URxvt*background:	rgba:1000/1000/1000/EFFF
+URxvt*background:	rgba:1000/1000/1000/FFFF
 URxvt*foreground:	#DDD
 
 !! Tabs
@@ -39,8 +39,8 @@ URxvt.tabbed.tab-fg:    3
 URxvt.tabbed.tab-bg:    0
 
 !!-! XFT settings !-!!
-Xft*dpi:	96
+!Xft*dpi:	96
 Xft*antialias:	true
 Xft*hinting:	full
 
-#include ".xcolors/space_supreme"
+#include ".xcolors/unamed1"

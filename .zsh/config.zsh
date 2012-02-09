@@ -1,5 +1,10 @@
 eval `dircolors -b`
 
+setopt extendedglob
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+	'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 export PS1=$'┌─\e[1;30m[\e[m\e[0;37m%n@%m\e[m\e[1;30m]\e[m[%~]\n└─> '
 export EDITOR="vim"
 export PAGER="less"

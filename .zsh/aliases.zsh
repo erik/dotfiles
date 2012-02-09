@@ -29,3 +29,9 @@ alias irb='irb --simple-prompt'
 # apt
 alias get='sudo apt-get install'
 alias apt-search='apt-cache search'
+
+# ack
+alias ack='ack-grep'
+
+# vim
+alias cim='vim'
