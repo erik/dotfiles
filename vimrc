@@ -5,7 +5,7 @@ set smartindent
 
 set showmatch
 
-colorscheme desert
-set background=light
+colorscheme vibrantink
+set background=dark
 
 set number
