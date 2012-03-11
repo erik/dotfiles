@@ -278,8 +278,15 @@ globalkeys = awful.util.table.join(
     -----------------------------------------------------------------------------------------------------
 	
     -- Open Emacs----------------------------------------------------------------------------------------
-    awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn("emacs --daemon") end),
-    awful.key({ modkey, "Control" }, "Return", function() awful.util.spawn("emacsclient -c") end),
+    awful.key({ modkey, "Control" }, "Return", 
+    	function()
+		-- spawn an emacs if none exists, else connect to server
+		if io.popen("pgrep emacs"):read() == nil then
+	    		awful.util.spawn("emacs") 
+		else
+			awful.util.spawn("emacsclient -c")
+		end
+	end),
     -----------------------------------------------------------------------------------------------------
 
     -- theme switcher menu-------------------------------------------------------------------------------
