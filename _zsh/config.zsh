@@ -13,6 +13,8 @@ case "$TERM" in
   rxvt-256color ) TERM=rxvt-unicode;;
 esac
 
+export PATH="$PATH:/var/lib/gems/1.9.1/bin"
+
 autoload zkbd
 function zkbd_file() {
     [[ -f ~/.zkbd/${TERM}-${VENDOR}-${OSTYPE} ]] && printf '%s' ~/".zkbd/${TERM}-${VENDOR}-${OSTYPE}" && return 0

@@ -1,8 +1,7 @@
 !!-! URXVT !-!!
 !! General settings
 
-URxvt*font: 		xft:clean:pixelsize=10
-URxvt*boldFont: 	xft:clean:pixelsize=10
+URxvt*font: 		xft:Inconsolata:size=9
 URxvt*allow_bold:	true
 URxvt*termName:		rxvt-256color
 URxvt*scrollBar:	false
@@ -28,10 +27,6 @@ URxvt*inheritPixmap:	False
 !!URxvt*fading:		0
 !!URxvt*fadeColor:	#202020
 
-!! Fore/background color
-URxvt*background:	rgba:1000/1000/1000/FFFF
-URxvt*foreground:	#DDD
-
 !! Tabs
 URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
@@ -43,4 +38,8 @@ URxvt.tabbed.tab-bg:    0
 Xft*antialias:	true
 Xft*hinting:	full
 
-#include ".xcolors/unamed1"
+!! Fore/background color
+URxvt*background:	rgba:1000/1000/1000/FFFF
+URxvt*foreground:	#DDD
+
+#include ".xcolors/tango"
