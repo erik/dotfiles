@@ -1,0 +1,9 @@
+[user]
+name = Erik Price
+email = github@erikprice.net
+
+[push]
+default = matching
+
+[merge]
+conflictstyle = diff3

@@ -1,0 +1,18 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+general {
+        colors = true
+        interval = 1
+}
+
+order += "load"
+order += "tztime local"
+
+tztime local {
+        format = "%a %b %H:%M:%S"
+}
+
+load {
+        format = "%1min"
+}
