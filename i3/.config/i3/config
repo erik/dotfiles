@@ -117,12 +117,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -147,8 +141,8 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 
-        position bottom
-        font pango:Ubuntu 10
+	position bottom
+	font pango:Ubuntu 10
 }
 
 # "natural scrolling", because OS X has broken me

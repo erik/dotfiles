@@ -1,5 +1,4 @@
 # i3status configuration file.
-# see "man i3status" for documentation.
 
 general {
         colors = true
@@ -10,7 +9,7 @@ order += "load"
 order += "tztime local"
 
 tztime local {
-        format = "%a %b %H:%M:%S"
+        format = "%a %b %d %H:%M:%S"
 }
 
 load {
