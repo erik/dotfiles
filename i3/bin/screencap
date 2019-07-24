@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -xe
+
+export FILE=$RANDOM.png
+
+scrot -s $FILE -e 'scp $f duff:/var/www/screenshots/'
+echo -n https://erikprice.net/i/$FILE | xclip -sel clipboard

@@ -5,3 +5,6 @@ set expandtab
 set smartcase
 
 set showmatch
+
+" Works better with light backgrounds
+colorscheme slate

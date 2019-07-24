@@ -163,3 +163,6 @@ for_window [class="^.*"] border pixel 3
 bindsym F7 exec playerctl previous
 bindsym F8 exec playerctl play-pause
 bindsym F9 exec playerctl next
+
+# Screenshot
+bindsym $mod+Shift+s exec ~/bin/screencap
