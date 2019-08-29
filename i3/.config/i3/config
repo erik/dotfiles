@@ -154,6 +154,9 @@ exec --no-startup-id xsetroot -solid "#4c4c4c"
 # Night light
 exec --no-startup-id redshift -l 34.03:118.45 -t 5700:2500 -g 0.8
 
+# Automatically lock screen + suspend after timeout.
+exec xautolock -time 25 -locker ~/bin/lock_and_suspend
+
 for_window [class="^.*"] border pixel 3
 
 # Media keys
