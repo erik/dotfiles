@@ -155,7 +155,10 @@ exec --no-startup-id xsetroot -solid "#4c4c4c"
 exec --no-startup-id redshift -l 34.03:-118.24 -t 5700:3500 -g 0.8
 
 # Automatically lock screen + suspend after timeout.
-exec xautolock -time 25 -locker ~/bin/lock_and_suspend
+exec --no-startup-id xautolock -time 25 -locker ~/bin/lock_and_suspend
+
+# Faster key repeat (250ms delay, 50ms repeat)
+exec --no-startup-id xset r rate 250 50
 
 for_window [class="^.*"] border pixel 3
 
