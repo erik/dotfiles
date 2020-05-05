@@ -1,0 +1,15 @@
+let mapleader = ";"
+
+nmap <leader>b :action Back<cr>
+nmap <leader>a :action Annotate<cr>
+
+" Make join command smart
+set ideajoin
+
+" Case insensitive match
+set ignorecase
+
+" Show where search pattern matches while typing
+set incsearch
+set showmatch
+
