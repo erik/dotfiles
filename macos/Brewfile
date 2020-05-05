@@ -28,6 +28,8 @@ brew "watch"
 
 # Misc
 brew "reattach-to-user-namespace"
+cask "spectacle"
+cask "alacritty"
 
 # Languages
 brew "go"
@@ -41,3 +43,4 @@ brew "pgcli"
 brew "redis", restart_service: true
 brew "sqlite"
 brew "telnet"
+
