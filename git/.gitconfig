@@ -3,7 +3,7 @@ name = Erik Price
 email = github@erikprice.net
 
 [push]
-default = matching
+default = current
 
 [merge]
 conflictstyle = diff3
