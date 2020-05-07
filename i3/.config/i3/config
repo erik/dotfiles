@@ -146,7 +146,7 @@ bar {
 }
 
 # "natural scrolling", because OS X has broken me
-exec --no-startup-id xinput set-prop 8 282 1
+exec --no-startup-id xinput set-prop 8 283 0
 
 # "desktop background"
 exec --no-startup-id xsetroot -solid "#4c4c4c"
@@ -169,3 +169,6 @@ bindsym F9 exec playerctl next
 
 # Screenshot
 bindsym $mod+Shift+s exec ~/bin/screencap
+
+# HIGH DPI BABY
+exec --no-startup-id xrandr --dpi 120
