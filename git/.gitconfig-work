@@ -1,0 +1,5 @@
+[user]
+email = erik.price@doordash.com
+
+[credential]
+helper = osxkeychain
