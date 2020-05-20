@@ -7,3 +7,9 @@ default = current
 
 [merge]
 conflictstyle = diff3
+
+[includeIf "gitdir:code/"]
+path = .gitconfig-personal
+
+[includeIf "gitdir:work/"]
+path = .gitconfig-work
