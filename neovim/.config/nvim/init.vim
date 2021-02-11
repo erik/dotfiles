@@ -8,3 +8,6 @@ set showmatch
 
 " Works better with light backgrounds
 colorscheme slate
+
+" Kill trailing spaces on save
+autocmd BufWritePre * %s/\s\+$//e
