@@ -1,0 +1,38 @@
+# -*- mode: sh -*-
+
+declare -g -A _deferred_files
+declare -g -A _deferred_programs
+
+_run_deferred () {
+    local prog="$1"; shift
+
+    local file=${_deferred_files[$prog]}
+    local programs=${_deferred_programs[$file]}
+
+    for p in ${=programs}; do
+        unset -f "$p";
+    done
+    source "$file"
+
+    "$prog" "$@"
+}
+
+defer-source () {
+    local file="$1"; shift
+    local programs="$*"
+
+    # Skip over missing files
+    [ -f "$file" ] || return 1
+
+    _deferred_programs[$file]="$programs"
+
+    # NOTE: ${=FOO} does word splitting
+    for p in ${=programs}; do
+        _deferred_files[$p]="$file"
+
+        declare -fg "$p"
+        "$p" () { _run_deferred "$0" "$@" }
+    done
+}
+
+defer-source "$@"

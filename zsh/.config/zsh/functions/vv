@@ -1,0 +1,15 @@
+# -*- mode: sh -*-
+
+vv () {
+  local IFS=$'\n'
+  local files=($(git ls-tree --full-name -r HEAD | \
+    awk '{print $4}' | \
+    fzf --multi --preview-window 'down:80%' --preview 'bat --color=always {}' ))
+
+  # Add command to history so we can get back to the same file quicker
+  print -s "$EDITOR $files"
+
+  $EDITOR $files
+}
+
+vv "$@"

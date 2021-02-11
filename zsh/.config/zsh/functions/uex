@@ -1,0 +1,24 @@
+# -*- mode: sh -*-
+# Wrapper around https://github.com/erik/uex
+#
+# TODO: start client if it isn't running yet
+
+: ${UEX_DATA_DIR:=$HOME/uex}
+
+uex () {
+  while true; do
+    local channel=$(\
+        find $UEX_DATA_DIR -type d -mindepth 2 -print | \
+        sed "s;$UEX_DATA_DIR;;g" | \
+        fzf --preview="tail -50 $UEX_DATA_DIR{}/out" --preview-window down:75%\
+    )
+
+    if [ -z "$channel" ]; then
+      return
+    fi
+
+    ~/code/uex/client "$UEX_DATA_DIR$channel"
+  done
+}
+
+uex "$@"
