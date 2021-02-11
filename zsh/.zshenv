@@ -8,6 +8,7 @@ export ZDOTDIR=${ZDOTDIR:=$HOME/.config/zsh/}
 # Zsh has `PATH` (a string) and `path` (an array)
 # typeset -U declares them as unique, and removes duplicates.
 typeset -U PATH path
+path+=("$HOME/bin")
 
 export EDITOR=nvim
 
