@@ -38,13 +38,25 @@ export HISTFILE=~/.zsh_history
 # Key Bindings
 #
 
-# Use Emacs movement
+# Use Emacs movement. Apply this first since it obliterates our key map.
 bindkey -e
+
+# Create a TERM/OS specific keymap if it doesn't exist. Note the -*. For some
+# reason, zkbd generates ...-darwin.19.0, but want ...-darwin-19.3.0.
+#
+# idk. $TERM-$VENDOR is probably unique enough for now.
+autoload zkbd
+[ ! -f ~/.config/zsh/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-*} ] && zkbd
+source ~/.config/zsh/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-*}
+
+# Make sure TERM-specific keys are working
+bindkey "${key[Backspace]}" backward-delete-char
+bindkey "${key[Delete]}" delete-char
 
 bindkey -r "^[/"
 bindkey "^[/" undo
-bindkey '^?' backward-delete-char
 
+# C-x C-e is really handy for long commands
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
