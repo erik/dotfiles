@@ -6,10 +6,15 @@ nmap <leader>a :action Annotate<cr>
 " Make join command smart
 set ideajoin
 
-" Case insensitive match
-set ignorecase
+" Case insensitive match unless there are capitals.
+set smartcase
 
 " Show where search pattern matches while typing
 set incsearch
 set showmatch
 
+" Adds missing gq command.
+"
+" Requires https://plugins.jetbrains.com/plugin/7234-wrap-to-column
+nmap gqq :action com.andrewbrookins.idea.wrap.WrapAction<CR>
+vmap gq :action com.andrewbrookins.idea.wrap.WrapAction<CR>
