@@ -1,12 +1,12 @@
 # -*- mode: sh -*-
 
 kubernetes-ssh () {
-  local ns=$1
-
-  if [ -z "$ns" ]; then
+  if [ -z "$1" ]; then
     echo "usage: $0 NAMESPACE"
     return 1
   fi
+
+  local ns=$1; shift
 
   # Ensure we're auth'd
   # NOTE: DD tooling specific
@@ -21,11 +21,16 @@ kubernetes-ssh () {
   local context="$(kubectl config view --output=json | jq -r '."current-context"')"
   local preview_cmd="kubectl describe pod -n '$ns' {}"
 
-  ( set -eo pipefail;
-    kubectl get pods -n "$ns" | \
-      awk '{print $1}' | \
-      sed 1d | \
-      fzf --prompt="[$context] > " --preview="$preview_cmd" --preview-window='right:70%' | \
-      xargs -I{} kubectl exec -it "{}" -n "$ns" -- bash
+  local pod=$(kubectl get pods -n "$ns" | \
+    awk '{print $1}' | \
+    sed 1d | \
+    fzf --prompt="[$context] > " --preview="$preview_cmd" --preview-window='right:70%'
   )
+
+  local args="bash"
+  if [ ! -z "$*" ]; then
+    args="$*"
+  fi
+
+  kubectl exec -it "$pod" -n "$ns" -- /bin/sh -c "$args"
 }

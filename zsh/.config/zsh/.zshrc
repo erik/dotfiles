@@ -44,10 +44,12 @@ bindkey -e
 # Create a TERM/OS specific keymap if it doesn't exist. Note the -*. For some
 # reason, zkbd generates ...-darwin.19.0, but want ...-darwin-19.3.0.
 #
+# Unset $DISPLAY so that it's not included in the output file name
+#
 # idk. $TERM-$VENDOR is probably unique enough for now.
 autoload zkbd
-[ ! -f ~/.config/zsh/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-*} ] && zkbd
-source ~/.config/zsh/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-*}
+[ ! -f ~/.config/zsh/.zkbd/$TERM-$VENDOR-* ] && (unset DISPLAY zkbd)
+source ~/.config/zsh/.zkbd/$TERM-$VENDOR-*
 
 # Make sure TERM-specific keys are working
 bindkey "${key[Backspace]}" backward-delete-char

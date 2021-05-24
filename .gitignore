@@ -1,3 +1,4 @@
 zsh/**/env/*.zsh
 zsh/**/.zcompdump
 zsh/**/.zsh_history
+neovim/**/.netrwhist
