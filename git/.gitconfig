@@ -2,6 +2,9 @@
 name = Erik Price
 email = github@erikprice.net
 
+[core]
+excludesfile = ~/.gitignore
+
 [push]
 default = current
 
