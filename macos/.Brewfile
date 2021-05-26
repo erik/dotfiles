@@ -32,15 +32,10 @@ cask "spectacle"
 cask "alacritty"
 
 # Languages
+brew "asdf"
 brew "go"
-brew "ghc"
-brew "elixir"
-brew "erlang"
 
 # Web Stuff
-brew "nginx"
-brew "pgcli"
-brew "redis", restart_service: true
 brew "sqlite"
 brew "telnet"
 
